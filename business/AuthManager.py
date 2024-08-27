@@ -115,7 +115,7 @@ class AuthManager(object):
    def SaveAuthResponse(self, authResponse):
       try:
          AuthResponseFile = open('AuthResponse.ini', 'wb') 
-         if authResponse.endpoint.endswith('/') :
+         if authResponse != None and authResponse.endpoint.endswith('/') :
             authResponse.endpoint = authResponse.endpoint.rstrip(authResponse.endpoint[-1])
          pickle.dump(authResponse, AuthResponseFile) 
          AuthResponseFile.close() 
